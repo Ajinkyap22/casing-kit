@@ -15,3 +15,6 @@ export * from "./cases/spongeCase.js";
 export * from "./cases/lowerCase.js";
 export * from "./cases/upperCase.js";
 export * from "./cases/cobolCase.js";
+export * from "./utils.js";
+
+export type { CasingFunction, TransformOptions } from "./types.js";
