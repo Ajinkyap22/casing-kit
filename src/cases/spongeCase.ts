@@ -7,16 +7,56 @@
  * "hello - world_test" -> "hElLo - WoRlD_tEsT"
  *
  * @param input - The string to convert.
+ * @param options.preserveWhitespace When true, preserves all whitespace (leading, trailing, and internal).
  * @param options.preserveSpecialCharacters Whether to preserve special characters.
  * @returns The string in sponge case.
  */
 export function toSpongeCase(
   input: string,
-  options: { preserveSpecialCharacters?: boolean } = {}
+  options: {
+    preserveWhitespace?: boolean;
+    preserveSpecialCharacters?: boolean;
+  } = {}
 ): string {
-  if (!input.trim()) return "";
+  if (!input.trim()) return input;
 
-  if (options.preserveSpecialCharacters) {
+  const { preserveWhitespace, preserveSpecialCharacters } = options;
+
+  if (preserveWhitespace && preserveSpecialCharacters) {
+    const matches = input.match(/^(\s*)(.*?)(\s*)$/s);
+    if (!matches) return input;
+
+    const [, leadingSpace, content, trailingSpace] = matches;
+
+    let upper = false;
+    const processed = content.replace(/[a-zA-Z]/g, (c) => {
+      const transformed = upper ? c.toUpperCase() : c.toLowerCase();
+      upper = !upper;
+      return transformed;
+    });
+
+    return `${leadingSpace}${processed}${trailingSpace}`;
+  }
+
+  if (preserveWhitespace) {
+    const matches = input.match(/^(\s*)(.*?)(\s*)$/s);
+    if (!matches) return input;
+
+    const [, leadingSpace, content, trailingSpace] = matches;
+
+    let upper = false;
+    const processed = content
+      .replace(/[^a-zA-Z0-9\s]+/g, " ")
+      .replace(/[a-zA-Z]/g, (c) => {
+        const transformed = upper ? c.toUpperCase() : c.toLowerCase();
+        upper = !upper;
+        return transformed;
+      });
+
+    return `${leadingSpace}${processed}${trailingSpace}`;
+  }
+
+  if (preserveSpecialCharacters) {
     const parts = input.split(/([^a-zA-Z0-9]+)/);
     let upper = false;
 

@@ -1,22 +1,55 @@
 /**
- * Converts a string to sentence case.
+ * Converts a string to Sentence case.
  *
  * Examples:
+ * "hello world" -> "Hello world"
  * "hello-world" -> "Hello world"
  * "HELLO_WORLD" -> "Hello world"
- * "hello123world" -> "Hello 123 world"
  *
- * @param input - The input string to convert.
+ * @param input The input string.
+ * @param options.preserveWhitespace When true, preserves all whitespace (leading, trailing, and internal).
  * @param options.preserveSpecialCharacters Whether to preserve special characters.
- * @returns The input string in sentence case.
+ * @returns The Sentence case version of the string.
  */
 export function toSentenceCase(
   input: string,
-  options: { preserveSpecialCharacters?: boolean } = {}
+  options: {
+    preserveWhitespace?: boolean;
+    preserveSpecialCharacters?: boolean;
+  } = {}
 ): string {
-  if (!input.trim()) return "";
+  if (!input.trim()) return input;
 
-  if (options.preserveSpecialCharacters) {
+  const { preserveWhitespace, preserveSpecialCharacters } = options;
+
+  if (preserveWhitespace && preserveSpecialCharacters) {
+    const matches = input.match(/^(\s*)(.*?)(\s*)$/s);
+    if (!matches) return input;
+
+    const [, leadingSpace, content, trailingSpace] = matches;
+
+    const processed = content
+      .toLowerCase()
+      .replace(/^[a-z]/, (c) => c.toUpperCase());
+
+    return `${leadingSpace}${processed}${trailingSpace}`;
+  }
+
+  if (preserveWhitespace) {
+    const matches = input.match(/^(\s*)(.*?)(\s*)$/s);
+    if (!matches) return input;
+
+    const [, leadingSpace, content, trailingSpace] = matches;
+
+    const processed = content
+      .replace(/[^a-zA-Z0-9\s]+/g, " ")
+      .toLowerCase()
+      .replace(/^[a-z]/, (c) => c.toUpperCase());
+
+    return `${leadingSpace}${processed}${trailingSpace}`;
+  }
+
+  if (preserveSpecialCharacters) {
     const parts = input.split(/([^a-zA-Z0-9]+)/);
 
     return parts

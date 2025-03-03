@@ -978,6 +978,7 @@ export const whitespaceTestCases = [
     lowerCase: { preserveWhitespace: true, result: "  hello   world  " },
     upperCase: { preserveWhitespace: true, result: "  HELLO   WORLD  " },
     cobolCase: { preserveWhitespace: true, result: "  HELLO-WORLD  " },
+    swapCase: { preserveWhitespace: true, result: "  HELLO   WORLD  " },
   },
   {
     input: "\thello\n\nworld\t",
@@ -997,6 +998,7 @@ export const whitespaceTestCases = [
     lowerCase: { preserveWhitespace: true, result: "\thello\n\nworld\t" },
     upperCase: { preserveWhitespace: true, result: "\tHELLO\n\nWORLD\t" },
     cobolCase: { preserveWhitespace: true, result: "\tHELLO-WORLD\t" },
+    swapCase: { preserveWhitespace: true, result: "\tHELLO\n\nWORLD\t" },
   },
   {
     input: "  hello   world  test  ",
@@ -1005,23 +1007,24 @@ export const whitespaceTestCases = [
     pascalCase: { preserveWhitespace: true, result: "  HelloWorldTest  " },
     kebabCase: { preserveWhitespace: true, result: "  hello-world-test  " },
     trainCase: { preserveWhitespace: true, result: "  Hello-World-Test  " },
-    titleCase: { preserveWhitespace: true, result: "  Hello   World   Test  " },
+    titleCase: { preserveWhitespace: true, result: "  Hello   World  Test  " },
     constantCase: { preserveWhitespace: true, result: "  HELLO_WORLD_TEST  " },
     dotCase: { preserveWhitespace: true, result: "  hello.world.test  " },
     pathCase: { preserveWhitespace: true, result: "  hello/world/test  " },
     sentenceCase: {
       preserveWhitespace: true,
-      result: "  Hello   world   test  ",
+      result: "  Hello   world  test  ",
     },
     macroCase: { preserveWhitespace: true, result: "  HELLO_WORLD_TEST  " },
     flatCase: { preserveWhitespace: true, result: "  helloworldtest  " },
     spongeCase: {
       preserveWhitespace: true,
-      result: "  hElLo   WoRlD   tEsT  ",
+      result: "  hElLo   WoRlD  tEsT  ",
     },
-    lowerCase: { preserveWhitespace: true, result: "  hello   world   test  " },
-    upperCase: { preserveWhitespace: true, result: "  HELLO   WORLD   TEST  " },
+    lowerCase: { preserveWhitespace: true, result: "  hello   world  test  " },
+    upperCase: { preserveWhitespace: true, result: "  HELLO   WORLD  TEST  " },
     cobolCase: { preserveWhitespace: true, result: "  HELLO-WORLD-TEST  " },
+    swapCase: { preserveWhitespace: true, result: "  HELLO   WORLD  TEST  " },
   },
   {
     input: "\r\n\thello  \f\v  world\r\n",
@@ -1056,6 +1059,10 @@ export const whitespaceTestCases = [
       result: "\r\n\tHELLO  \f\v  WORLD\r\n",
     },
     cobolCase: { preserveWhitespace: true, result: "\r\n\tHELLO-WORLD\r\n" },
+    swapCase: {
+      preserveWhitespace: true,
+      result: "\r\n\tHELLO  \f\v  WORLD\r\n",
+    },
   },
 ];
 
@@ -1125,7 +1132,7 @@ export const whitespaceAndSpecialCharacterTestCases = [
     spongeCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hElLo   @   wOrLd  ",
+      result: "  hElLo   @   WoRlD  ",
     },
     lowerCase: {
       preserveWhitespace: true,
@@ -1138,6 +1145,11 @@ export const whitespaceAndSpecialCharacterTestCases = [
       result: "  HELLO   @   WORLD  ",
     },
     cobolCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HELLO   @   WORLD  ",
+    },
+    swapCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
       result: "  HELLO   @   WORLD  ",
@@ -1225,33 +1237,38 @@ export const whitespaceAndSpecialCharacterTestCases = [
       preserveSpecialCharacters: true,
       result: "\tHELLO.WORLD\n",
     },
+    swapCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHELLO.WORLD\n",
+    },
   },
   {
     input: "  hello@world.com   \n   test#123  ",
     camelCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hello@world.com   \n   test#123  ",
+      result: "  hello@world.comTest#123  ",
     },
     snakeCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hello@world.com   \n   test#123  ",
+      result: "  hello@world.com_test#123  ",
     },
     pascalCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  Hello@World.Com   \n   Test#123  ",
+      result: "  Hello@World.ComTest#123  ",
     },
     kebabCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hello@world.com   \n   test#123  ",
+      result: "  hello@world.com-test#123  ",
     },
     trainCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  Hello@World.Com   \n   Test#123  ",
+      result: "  Hello@World.Com-Test#123  ",
     },
     titleCase: {
       preserveWhitespace: true,
@@ -1261,37 +1278,37 @@ export const whitespaceAndSpecialCharacterTestCases = [
     constantCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  HELLO@WORLD.COM   \n   TEST#123  ",
+      result: "  HELLO@WORLD.COM_TEST#123  ",
     },
     dotCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hello@world.com   \n   test#123  ",
+      result: "  hello@world.com.test#123  ",
     },
     pathCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hello@world.com   \n   test#123  ",
+      result: "  hello@world.com/test#123  ",
     },
     sentenceCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  Hello@world.com   \n   Test#123  ",
+      result: "  Hello@world.com   \n   test#123  ",
     },
     macroCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  HELLO@WORLD.COM   \n   TEST#123  ",
+      result: "  HELLO@WORLD.COM_TEST#123  ",
     },
     flatCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hello@world.com   \n   test#123  ",
+      result: "  hello@world.comtest#123  ",
     },
     spongeCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  hElLo@WoRlD.cOm   \n   tEsT#123  ",
+      result: "  hElLo@WoRlD.cOm   \n   TeSt#123  ",
     },
     lowerCase: {
       preserveWhitespace: true,
@@ -1304,6 +1321,11 @@ export const whitespaceAndSpecialCharacterTestCases = [
       result: "  HELLO@WORLD.COM   \n   TEST#123  ",
     },
     cobolCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HELLO@WORLD.COM-TEST#123  ",
+    },
+    swapCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
       result: "  HELLO@WORLD.COM   \n   TEST#123  ",
@@ -1359,7 +1381,7 @@ export const whitespaceAndSpecialCharacterTestCases = [
     sentenceCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "\t$Hello   &   world!!\n\t(test)  ",
+      result: "\t$hello   &   world!!\n\t(test)  ",
     },
     macroCase: {
       preserveWhitespace: true,
@@ -1374,7 +1396,7 @@ export const whitespaceAndSpecialCharacterTestCases = [
     spongeCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "\t$hElLo   &   wOrLd!!\n\t(tEsT)  ",
+      result: "\t$hElLo   &   WoRlD!!\n\t(tEsT)  ",
     },
     lowerCase: {
       preserveWhitespace: true,
@@ -1387,6 +1409,11 @@ export const whitespaceAndSpecialCharacterTestCases = [
       result: "\t$HELLO   &   WORLD!!\n\t(TEST)  ",
     },
     cobolCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\t$HELLO   &   WORLD!!\n\t(TEST)  ",
+    },
+    swapCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
       result: "\t$HELLO   &   WORLD!!\n\t(TEST)  ",
@@ -1442,7 +1469,7 @@ export const whitespaceAndSpecialCharacterTestCases = [
     sentenceCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  [Hello]   {   world   }   /test/  ",
+      result: "  [hello]   {   world   }   /test/  ",
     },
     macroCase: {
       preserveWhitespace: true,
@@ -1457,7 +1484,7 @@ export const whitespaceAndSpecialCharacterTestCases = [
     spongeCase: {
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
-      result: "  [hElLo]   {   wOrLd   }   /tEsT/  ",
+      result: "  [hElLo]   {   WoRlD   }   /tEsT/  ",
     },
     lowerCase: {
       preserveWhitespace: true,
@@ -1473,6 +1500,275 @@ export const whitespaceAndSpecialCharacterTestCases = [
       preserveWhitespace: true,
       preserveSpecialCharacters: true,
       result: "  [HELLO]   {   WORLD   }   /TEST/  ",
+    },
+    swapCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  [HELLO]   {   WORLD   }   /TEST/  ",
+    },
+  },
+  {
+    input: "  hello world @ test case  ",
+    camelCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  helloWorld @ testCase  ",
+    },
+    snakeCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  hello_world @ test_case  ",
+    },
+    pascalCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HelloWorld @ TestCase  ",
+    },
+    kebabCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  hello-world @ test-case  ",
+    },
+    trainCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  Hello-World @ Test-Case  ",
+    },
+    titleCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  Hello World @ Test Case  ",
+    },
+    constantCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HELLO_WORLD @ TEST_CASE  ",
+    },
+    dotCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  hello.world @ test.case  ",
+    },
+    pathCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  hello/world @ test/case  ",
+    },
+    sentenceCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  Hello world @ test case  ",
+    },
+    macroCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HELLO_WORLD @ TEST_CASE  ",
+    },
+    flatCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  helloworld @ testcase  ",
+    },
+    spongeCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  hElLo WoRlD @ tEsT cAsE  ",
+    },
+    lowerCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  hello world @ test case  ",
+    },
+    upperCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HELLO WORLD @ TEST CASE  ",
+    },
+    cobolCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HELLO-WORLD @ TEST-CASE  ",
+    },
+    swapCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  HELLO WORLD @ TEST CASE  ",
+    },
+  },
+  {
+    input: "\thello\nworld#test\ncase\n",
+    camelCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thelloWorld#testCase\n",
+    },
+    snakeCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thello_world#test_case\n",
+    },
+    pascalCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHelloWorld#TestCase\n",
+    },
+    kebabCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thello-world#test-case\n",
+    },
+    trainCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHello-World#Test-Case\n",
+    },
+    titleCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHello\nWorld#Test\nCase\n",
+    },
+    constantCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHELLO_WORLD#TEST_CASE\n",
+    },
+    dotCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thello.world#test.case\n",
+    },
+    pathCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thello/world#test/case\n",
+    },
+    sentenceCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHello\nworld#test\ncase\n",
+    },
+    macroCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHELLO_WORLD#TEST_CASE\n",
+    },
+    flatCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thelloworld#testcase\n",
+    },
+    spongeCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thElLo\nWoRlD#tEsT\ncAsE\n",
+    },
+    lowerCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\thello\nworld#test\ncase\n",
+    },
+    upperCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHELLO\nWORLD#TEST\nCASE\n",
+    },
+    cobolCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHELLO-WORLD#TEST-CASE\n",
+    },
+    swapCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "\tHELLO\nWORLD#TEST\nCASE\n",
+    },
+  },
+  {
+    input: "  first second @ third fourth $ fifth sixth  ",
+    camelCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  firstSecond @ thirdFourth $ fifthSixth  ",
+    },
+    snakeCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  first_second @ third_fourth $ fifth_sixth  ",
+    },
+    pascalCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  FirstSecond @ ThirdFourth $ FifthSixth  ",
+    },
+    kebabCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  first-second @ third-fourth $ fifth-sixth  ",
+    },
+    trainCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  First-Second @ Third-Fourth $ Fifth-Sixth  ",
+    },
+    titleCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  First Second @ Third Fourth $ Fifth Sixth  ",
+    },
+    constantCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  FIRST_SECOND @ THIRD_FOURTH $ FIFTH_SIXTH  ",
+    },
+    dotCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  first.second @ third.fourth $ fifth.sixth  ",
+    },
+    pathCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  first/second @ third/fourth $ fifth/sixth  ",
+    },
+    sentenceCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  First second @ third fourth $ fifth sixth  ",
+    },
+    macroCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  FIRST_SECOND @ THIRD_FOURTH $ FIFTH_SIXTH  ",
+    },
+    flatCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  firstsecond @ thirdfourth $ fifthsixth  ",
+    },
+    spongeCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  fIrSt SeCoNd @ ThIrD fOuRtH $ fIfTh SiXtH  ",
+    },
+    lowerCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  first second @ third fourth $ fifth sixth  ",
+    },
+    upperCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  FIRST SECOND @ THIRD FOURTH $ FIFTH SIXTH  ",
+    },
+    cobolCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  FIRST-SECOND @ THIRD-FOURTH $ FIFTH-SIXTH  ",
+    },
+    swapCase: {
+      preserveWhitespace: true,
+      preserveSpecialCharacters: true,
+      result: "  FIRST SECOND @ THIRD FOURTH $ FIFTH SIXTH  ",
     },
   },
 ];
