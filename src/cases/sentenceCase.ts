@@ -4,7 +4,7 @@
  * Examples:
  * "hello world" -> "Hello world"
  * "hello-world" -> "Hello world"
- * "HELLO_WORLD" -> "Hello world"
+ * "hello. world" -> "Hello. World"
  *
  * @param input The input string.
  * @param options.preserveWhitespace When true, preserves all whitespace (leading, trailing, and internal).
@@ -30,7 +30,7 @@ export function toSentenceCase(
 
     const processed = content
       .toLowerCase()
-      .replace(/^[a-z]/, (c) => c.toUpperCase());
+      .replace(/(?:^|\.\s+)([a-z])/g, (c) => c.toUpperCase());
 
     return `${leadingSpace}${processed}${trailingSpace}`;
   }
@@ -42,9 +42,9 @@ export function toSentenceCase(
     const [, leadingSpace, content, trailingSpace] = matches;
 
     const processed = content
-      .replace(/[^a-zA-Z0-9\s]+/g, " ")
+      .replace(/[^a-zA-Z0-9\s.]+/g, " ")
       .toLowerCase()
-      .replace(/^[a-z]/, (c) => c.toUpperCase());
+      .replace(/(?:^|\.\s+)([a-z])/g, (c) => c.toUpperCase());
 
     return `${leadingSpace}${processed}${trailingSpace}`;
   }
@@ -61,7 +61,7 @@ export function toSentenceCase(
           .replace(/[_\s]+/g, " ")
           .toLowerCase();
 
-        return index === 0 || parts[index - 1].includes("\n")
+        return index === 0
           ? processed.charAt(0).toUpperCase() + processed.slice(1)
           : processed;
       })
@@ -70,8 +70,9 @@ export function toSentenceCase(
 
   return input
     .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .replace(/[^a-zA-Z0-9]+/g, " ")
+    .replace(/[^a-zA-Z0-9\s.]+/g, " ")
+    .replace(/\s+/g, " ")
     .trim()
     .toLowerCase()
-    .replace(/^./, (char) => char.toUpperCase());
+    .replace(/(?:^|\.\s+)([a-z])/g, (c) => c.toUpperCase());
 }

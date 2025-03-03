@@ -259,6 +259,26 @@ export const testCases = [
     upperCase: "HELLO WORLD",
     cobolCase: "HELLO-WORLD",
   },
+  {
+    input: "hello. world",
+    camelCase: "helloWorld",
+    snakeCase: "hello_world",
+    pascalCase: "HelloWorld",
+    kebabCase: "hello-world",
+    trainCase: "Hello-World",
+    titleCase: "Hello World",
+    constantCase: "HELLO_WORLD",
+    dotCase: "hello.world",
+    pathCase: "hello/world",
+    sentenceCase: "Hello. World",
+    macroCase: "HELLO_WORLD",
+    flatCase: "helloworld",
+    swapCase: "HELLO. WORLD",
+    spongeCase: "hElLo. WoRlD",
+    lowerCase: "hello. world",
+    upperCase: "HELLO. WORLD",
+    cobolCase: "HELLO-WORLD",
+  },
 ];
 
 export const specialCharacterTestCases = [
