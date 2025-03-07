@@ -1792,3 +1792,143 @@ export const whitespaceAndSpecialCharacterTestCases = [
     },
   },
 ];
+
+export const customTransformTestCases = [
+  {
+    name: "basic transformation",
+    input: "hello world",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { outputSeparator: " " },
+    expected: "HELLO WORLD",
+  },
+  {
+    name: "with index parameter",
+    input: "one two three",
+    transformer: (word: string, index: number) => `${word}-${index}`,
+    options: { outputSeparator: " " },
+    expected: "one-0 two-1 three-2",
+  },
+  {
+    name: "empty input",
+    input: "",
+    transformer: (word: string) => word.toUpperCase(),
+    options: {},
+    expected: "",
+  },
+  {
+    name: "default separator",
+    input: "hello-world_test case",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { outputSeparator: " " },
+    expected: "HELLO WORLD TEST CASE",
+  },
+  {
+    name: "custom string separator",
+    input: "hello.world.test",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { separator: ".", outputSeparator: " " },
+    expected: "HELLO WORLD TEST",
+  },
+  {
+    name: "custom regex separator",
+    input: "hello.world|test",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { separator: /[.|]/, outputSeparator: " " },
+    expected: "HELLO WORLD TEST",
+  },
+  {
+    name: "preserve special characters",
+    input: "hello-world_test",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { preserveSpecialCharacters: true },
+    expected: "HELLO-WORLD_TEST",
+  },
+  {
+    name: "preserve complex separators",
+    input: "user@example.com",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { preserveSpecialCharacters: true, separator: /[@.]/ },
+    expected: "USER@EXAMPLE.COM",
+  },
+  {
+    name: "custom transformation with preserved characters",
+    input: "hello_world-test",
+    transformer: (word: string, index: number) =>
+      `${word.toUpperCase()}_${index}`,
+    options: { preserveSpecialCharacters: true },
+    expected: "HELLO_0_WORLD_1-TEST_2",
+  },
+  {
+    name: "preserve whitespace",
+    input: "  hello   world  ",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { preserveWhitespace: true },
+    expected: "  HELLO   WORLD  ",
+  },
+  {
+    name: "preserve whitespace with special characters",
+    input: "  hello - world  ",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { preserveWhitespace: true, preserveSpecialCharacters: true },
+    expected: "  HELLO - WORLD  ",
+  },
+  {
+    name: "all options combined",
+    input: "  user.name@example.com  ",
+    transformer: (word: string, index: number) =>
+      `${word.toUpperCase()}_${index}`,
+    options: {
+      separator: /[@.]/,
+      preserveSpecialCharacters: true,
+      preserveWhitespace: true,
+    },
+    expected: "  USER_0.NAME_1@EXAMPLE_2.COM_3  ",
+  },
+  {
+    name: "only separators",
+    input: "---",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { preserveSpecialCharacters: true },
+    expected: "---",
+  },
+  {
+    name: "only whitespace",
+    input: "   ",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { preserveWhitespace: true },
+    expected: "   ",
+  },
+  {
+    name: "camelCase to snake_case",
+    input: "helloWorld",
+    transformer: (word: string, index: number) =>
+      index === 0 ? word.toLowerCase() : `_${word.toLowerCase()}`,
+    options: { separator: /(?=[A-Z])/, outputSeparator: "" },
+    expected: "hello_world",
+  },
+  {
+    name: "snake_case to camelCase",
+    input: "hello_world",
+    transformer: (word: string, index: number) =>
+      index === 0
+        ? word.toLowerCase()
+        : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+    options: { separator: "_" },
+    expected: "helloWorld",
+  },
+  {
+    name: "kebab-case to PascalCase",
+    input: "hello-world",
+    transformer: (word: string) =>
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+    options: { separator: "-" },
+    expected: "HelloWorld",
+  },
+  {
+    name: "file path preservation",
+    input: "src/components/button.tsx",
+    transformer: (word: string) => word.toUpperCase(),
+    options: { separator: /[\/.]/, preserveSpecialCharacters: true },
+    expected: "SRC/COMPONENTS/BUTTON.TSX",
+  },
+];
