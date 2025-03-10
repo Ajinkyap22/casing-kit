@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ES5",
     "module": "NodeNext",
     "moduleResolution": "nodenext",
     "outDir": "dist",
@@ -7,6 +8,9 @@
     "strict": true,
     "declaration": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

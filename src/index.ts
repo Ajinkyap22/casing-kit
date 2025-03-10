@@ -17,4 +17,8 @@ export * from "./cases/upperCase.js";
 export * from "./cases/cobolCase.js";
 export * from "./utils.js";
 
-export type { CasingFunction, TransformOptions } from "./types.js";
+export type {
+  CasingFunction,
+  TransformOptions,
+  CustomTransformOptions,
+} from "./types.js";
