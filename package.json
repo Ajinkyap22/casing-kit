@@ -1,23 +1,63 @@
 {
-  "name": "casing-utils",
+  "name": "casejs",
   "version": "1.0.0",
+  "description": "A lightweight, zero-dependency utility library for case transformations in JavaScript and TypeScript",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "vitest"
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
   },
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "keywords": [
+    "case",
+    "camel",
+    "snake",
+    "kebab",
+    "pascal",
+    "upper",
+    "lower",
+    "title",
+    "string",
+    "transform",
+    "change",
+    "convert",
+    "format"
+  ],
+  "author": "Ajinkya Palaskar <palaskarajinkya22@gmail.com> (https://github.com/Ajinkyap22)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajinkyap22/casejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ajinkyap22/casejs/issues"
+  },
+  "homepage": "https://github.com/Ajinkyap22/casejs#readme",
   "devDependencies": {
+    "eslint": "^9.22.0",
+    "tsup": "^8.4.0",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.26.1",
     "vitest": "^3.0.5"
   }
 }
