@@ -20,9 +20,9 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs",
-      "default": "./dist/index.mjs"
+      "default": "./dist/index.js"
     }
   },
   "engines": {
