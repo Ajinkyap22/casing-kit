@@ -54,7 +54,11 @@
   },
   "homepage": "https://github.com/Ajinkyap22/casejs#readme",
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.1",
     "eslint": "^9.22.0",
+    "semantic-release": "^24.2.3",
     "tsup": "^8.4.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.26.1",
