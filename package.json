@@ -1,5 +1,5 @@
 {
-  "name": "casejs",
+  "name": "casing-kit",
   "version": "1.0.0",
   "description": "A lightweight, zero-dependency utility library for case transformations in JavaScript and TypeScript",
   "main": "dist/index.cjs",
@@ -46,12 +46,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ajinkyap22/casejs.git"
+    "url": "git+https://github.com/Ajinkyap22/casing-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/Ajinkyap22/casejs/issues"
+    "url": "https://github.com/Ajinkyap22/casing-kit/issues"
   },
-  "homepage": "https://github.com/Ajinkyap22/casejs#readme",
+  "homepage": "https://github.com/Ajinkyap22/casing-kit#readme",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",

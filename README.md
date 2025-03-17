@@ -1,9 +1,9 @@
-# casejs
+# casing-kit
 
 A lightweight, zero-dependency utility library for case transformations in JavaScript and TypeScript.
 
-[![npm version](https://img.shields.io/npm/v/casejs.svg)](https://www.npmjs.com/package/casejs)
-[![license](https://img.shields.io/npm/l/casejs.svg)](https://github.com/username/casejs/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/casing-kit.svg)](https://www.npmjs.com/package/casing-kit)
+[![license](https://img.shields.io/npm/l/casing-kit.svg)](https://github.com/username/casing-kit/blob/main/LICENSE)
 
 ## Features
 
@@ -18,19 +18,19 @@ A lightweight, zero-dependency utility library for case transformations in JavaS
 
 ```bash
 # Using npm
-npm install casejs
+npm install casing-kit
 
 # Using yarn
-yarn add casejs
+yarn add casing-kit
 
 # Using pnpm
-pnpm add casejs
+pnpm add casing-kit
 ```
 
 ## Basic Usage
 
 ```javascript
-import { toCamelCase, toSnakeCase, toKebabCase } from "casejs";
+import { toCamelCase, toSnakeCase, toKebabCase } from "casing-kit";
 
 // Basic transformations
 toCamelCase("hello world"); // 'helloWorld'
@@ -45,7 +45,7 @@ toKebabCase("hello-world"); // 'hello-world'
 Transforms a string to camelCase format (first word lowercase, subsequent words capitalized, no separators).
 
 ```javascript
-import { toCamelCase } from "casejs";
+import { toCamelCase } from "casing-kit";
 
 toCamelCase("hello world"); // 'helloWorld'
 toCamelCase("Hello World"); // 'helloWorld'
@@ -59,7 +59,7 @@ toCamelCase("HELLO_WORLD"); // 'helloWorld'
 Transforms a string to PascalCase format (all words capitalized, no separators).
 
 ```javascript
-import { toPascalCase } from "casejs";
+import { toPascalCase } from "casing-kit";
 
 toPascalCase("hello world"); // 'HelloWorld'
 toPascalCase("hello-world"); // 'HelloWorld'
@@ -72,7 +72,7 @@ toPascalCase("helloWorld"); // 'HelloWorld'
 Transforms a string to snake_case format (all lowercase, words separated by underscores).
 
 ```javascript
-import { toSnakeCase } from "casejs";
+import { toSnakeCase } from "casing-kit";
 
 toSnakeCase("hello world"); // 'hello_world'
 toSnakeCase("helloWorld"); // 'hello_world'
@@ -85,7 +85,7 @@ toSnakeCase("hello-world"); // 'hello_world'
 Transforms a string to kebab-case format (all lowercase, words separated by hyphens).
 
 ```javascript
-import { toKebabCase } from "casejs";
+import { toKebabCase } from "casing-kit";
 
 toKebabCase("hello world"); // 'hello-world'
 toKebabCase("helloWorld"); // 'hello-world'
@@ -98,7 +98,7 @@ toKebabCase("hello_world"); // 'hello-world'
 Transforms a string to CONSTANT_CASE format (all uppercase, words separated by underscores).
 
 ```javascript
-import { toConstantCase } from "casejs";
+import { toConstantCase } from "casing-kit";
 
 toConstantCase("hello world"); // 'HELLO_WORLD'
 toConstantCase("helloWorld"); // 'HELLO_WORLD'
@@ -110,7 +110,7 @@ toConstantCase("hello-world"); // 'HELLO_WORLD'
 Transforms a string to dot.case format (all lowercase, words separated by dots).
 
 ```javascript
-import { toDotCase } from "casejs";
+import { toDotCase } from "casing-kit";
 
 toDotCase("hello world"); // 'hello.world'
 toDotCase("helloWorld"); // 'hello.world'
@@ -122,7 +122,7 @@ toDotCase("hello-world"); // 'hello.world'
 Transforms a string to path/case format (all lowercase, words separated by slashes).
 
 ```javascript
-import { toPathCase } from "casejs";
+import { toPathCase } from "casing-kit";
 
 toPathCase("hello world"); // 'hello/world'
 toPathCase("helloWorld"); // 'hello/world'
@@ -134,7 +134,7 @@ toPathCase("hello-world"); // 'hello/world'
 Transforms a string to Title Case format (first letter of each word capitalized, separated by spaces).
 
 ```javascript
-import { toTitleCase } from "casejs";
+import { toTitleCase } from "casing-kit";
 
 toTitleCase("hello world"); // 'Hello World'
 toTitleCase("hello-world"); // 'Hello World'
@@ -146,7 +146,7 @@ toTitleCase("hello_world"); // 'Hello World'
 Transforms a string to Sentence case format (first letter of first word capitalized, rest lowercase, separated by spaces).
 
 ```javascript
-import { toSentenceCase } from "casejs";
+import { toSentenceCase } from "casing-kit";
 
 toSentenceCase("hello world"); // 'Hello world'
 toSentenceCase("helloWorld"); // 'Hello world'
@@ -158,7 +158,7 @@ toSentenceCase("HELLO_WORLD"); // 'Hello world'
 Transforms a string to UPPERCASE format.
 
 ```javascript
-import { toUpperCase } from "casejs";
+import { toUpperCase } from "casing-kit";
 
 toUpperCase("hello world"); // 'HELLO WORLD'
 toUpperCase("Hello World"); // 'HELLO WORLD'
@@ -169,7 +169,7 @@ toUpperCase("Hello World"); // 'HELLO WORLD'
 Transforms a string to lowercase format.
 
 ```javascript
-import { toLowerCase } from "casejs";
+import { toLowerCase } from "casing-kit";
 
 toLowerCase("Hello World"); // 'hello world'
 toLowerCase("HELLO WORLD"); // 'hello world'
@@ -180,7 +180,7 @@ toLowerCase("HELLO WORLD"); // 'hello world'
 Transforms a string to COBOL-CASE format (all uppercase, words separated by hyphens).
 
 ```javascript
-import { toCobolCase } from "casejs";
+import { toCobolCase } from "casing-kit";
 
 toCobolCase("hello world"); // 'HELLO-WORLD'
 toCobolCase("helloWorld"); // 'HELLO-WORLD'
@@ -191,7 +191,7 @@ toCobolCase("helloWorld"); // 'HELLO-WORLD'
 Transforms a string to MACRO_CASE format (same as CONSTANT_CASE).
 
 ```javascript
-import { toMacroCase } from "casejs";
+import { toMacroCase } from "casing-kit";
 
 toMacroCase("hello world"); // 'HELLO_WORLD'
 toMacroCase("helloWorld"); // 'HELLO_WORLD'
@@ -202,7 +202,7 @@ toMacroCase("helloWorld"); // 'HELLO_WORLD'
 Transforms a string to Train-Case format (first letter of each word capitalized, separated by hyphens).
 
 ```javascript
-import { toTrainCase } from "casejs";
+import { toTrainCase } from "casing-kit";
 
 toTrainCase("hello world"); // 'Hello-World'
 toTrainCase("helloWorld"); // 'Hello-World'
@@ -213,7 +213,7 @@ toTrainCase("helloWorld"); // 'Hello-World'
 Transforms a string to flat case format (all lowercase, no separators).
 
 ```javascript
-import { toFlatCase } from "casejs";
+import { toFlatCase } from "casing-kit";
 
 toFlatCase("hello world"); // 'helloworld'
 toFlatCase("Hello-World"); // 'helloworld'
@@ -224,7 +224,7 @@ toFlatCase("Hello-World"); // 'helloworld'
 Transforms a string to sPoNgEbOb CaSe format (alternating case).
 
 ```javascript
-import { toSpongeCase } from "casejs";
+import { toSpongeCase } from "casing-kit";
 
 toSpongeCase("hello world"); // 'hElLo WoRlD'
 toSpongeCase("helloWorld"); // 'hElLoWoRlD'
@@ -235,7 +235,7 @@ toSpongeCase("helloWorld"); // 'hElLoWoRlD'
 Transforms a string by swapping the case of each character.
 
 ```javascript
-import { toSwapCase } from "casejs";
+import { toSwapCase } from "casing-kit";
 
 toSwapCase("Hello World"); // 'hELLO wORLD'
 toSwapCase("hElLo WoRlD"); // 'HeLlO wOrLd'
@@ -250,7 +250,7 @@ All case transformation functions accept the following options:
 When true, preserves leading, trailing, and internal whitespace characters.
 
 ```javascript
-import { toCamelCase } from "casejs";
+import { toCamelCase } from "casing-kit";
 
 // Default behavior
 toCamelCase("  hello  world  "); // 'helloWorld'
@@ -264,7 +264,7 @@ toCamelCase("  hello  world  ", { preserveWhitespace: true }); // '  helloWorld 
 When true, preserves special characters.
 
 ```javascript
-import { toConstantCase } from "casejs";
+import { toConstantCase } from "casing-kit";
 
 // Default behavior
 toConstantCase("hello@world"); // 'HELLO_WORLD'
@@ -278,7 +278,7 @@ toConstantCase("hello@world", { preserveSpecialCharacters: true }); // 'HELLO@WO
 You can combine options for precise control:
 
 ```javascript
-import { toPascalCase } from "casejs";
+import { toPascalCase } from "casing-kit";
 
 // Preserve both whitespace and special characters
 toPascalCase("  hello @ world  ", {
@@ -294,7 +294,7 @@ toPascalCase("  hello @ world  ", {
 Applies a custom transformation function to each word in a string.
 
 ```javascript
-import { customTransform } from "casejs";
+import { customTransform } from "casing-kit";
 
 // Uppercase every word
 customTransform("hello world", (word) => word.toUpperCase(), {
@@ -326,7 +326,7 @@ The `customTransform` function accepts the following options:
 Defines how the input string is split into words. Default: `/[\s\-_]/`
 
 ```javascript
-import { customTransform } from "casejs";
+import { customTransform } from "casing-kit";
 
 // Default separator (spaces, hyphens, underscores)
 customTransform("hello-world_test", (word) => word.toUpperCase(), {
@@ -354,7 +354,7 @@ customTransform("hello.world|test", (word) => word.toUpperCase(), {
 Defines the separator used when joining transformed words. Default: `""`
 
 ```javascript
-import { customTransform } from "casejs";
+import { customTransform } from "casing-kit";
 
 customTransform("hello world", (word) => word.toUpperCase(), {
   outputSeparator: "-",
@@ -372,7 +372,7 @@ customTransform("hello world", (word) => word.toUpperCase(), {
 When true, keeps special characters in the final result. Default: `false`
 
 ```javascript
-import { customTransform } from "casejs";
+import { customTransform } from "casing-kit";
 
 // Default behavior
 customTransform("hello@world", (word) => word.toUpperCase());
@@ -390,7 +390,7 @@ customTransform("hello@world", (word) => word.toUpperCase(), {
 When true, keeps leading/trailing/multiple spaces. Default: `false`
 
 ```javascript
-import { customTransform } from "casejs";
+import { customTransform } from "casing-kit";
 
 // Default behavior
 customTransform("  hello  world  ", (word) => word.toUpperCase());
@@ -408,7 +408,7 @@ customTransform("  hello  world  ", (word) => word.toUpperCase(), {
 You can combine all options for precise control:
 
 ```javascript
-import { customTransform } from "casejs";
+import { customTransform } from "casing-kit";
 
 customTransform("  user@example.com  ", (word) => word.toUpperCase(), {
   separator: /[@.]/,
@@ -424,7 +424,7 @@ customTransform("  user@example.com  ", (word) => word.toUpperCase(), {
 Transforms the keys and/or values of an object using a casing function.
 
 ```javascript
-import { transformObjectCasing, toCamelCase, toSnakeCase } from "casejs";
+import { transformObjectCasing, toCamelCase, toSnakeCase } from "casing-kit";
 
 // Transform object keys to camelCase
 transformObjectCasing({ user_id: 123, first_name: "John" }, toCamelCase);
@@ -461,7 +461,7 @@ The `transformObjectCasing` function accepts the following options:
 When true, transforms object keys using the provided casing function. Default: `true`
 
 ```javascript
-import { transformObjectCasing, toCamelCase } from "casejs";
+import { transformObjectCasing, toCamelCase } from "casing-kit";
 
 // Default behavior (transforms keys)
 transformObjectCasing({ user_id: 123, first_name: "John" }, toCamelCase);
@@ -479,7 +479,7 @@ transformObjectCasing({ user_id: 123, first_name: "John" }, toCamelCase, {
 When true, transforms string values using the provided casing function. Default: `false`
 
 ```javascript
-import { transformObjectCasing, toCamelCase } from "casejs";
+import { transformObjectCasing, toCamelCase } from "casing-kit";
 
 // Default behavior (doesn't transform values)
 transformObjectCasing(
@@ -502,7 +502,7 @@ transformObjectCasing(
 You can combine both options:
 
 ```javascript
-import { transformObjectCasing, toCamelCase } from "casejs";
+import { transformObjectCasing, toCamelCase } from "casing-kit";
 
 // Transform both keys and values
 transformObjectCasing(
@@ -515,7 +515,7 @@ transformObjectCasing(
 
 ## TypeScript Support
 
-casejs is written in TypeScript and includes full type definitions:
+casing-kit is written in TypeScript and includes full type definitions:
 
 ```typescript
 import {
@@ -525,7 +525,7 @@ import {
   type CustomTransformOptions,
   type TransformOptions,
   type CasingFunction,
-} from "casejs";
+} from "casing-kit";
 
 // Case transformation options
 const options: {
@@ -575,7 +575,7 @@ const result4: { dlrow_olleh: number } = transformObjectCasing(
 
 ## Browser Support
 
-casejs targets ES2018 and works in all modern browsers and Node.js environments that support this standard. For older environments that don't support ES2018, you'll need to use a transpiler like Babel with appropriate polyfills.
+casing-kit targets ES2018 and works in all modern browsers and Node.js environments that support this standard. For older environments that don't support ES2018, you'll need to use a transpiler like Babel with appropriate polyfills.
 
 ## License
 
