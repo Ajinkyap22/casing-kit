@@ -3,7 +3,7 @@
 A lightweight, zero-dependency utility library for case transformations in JavaScript and TypeScript.
 
 [![npm version](https://img.shields.io/npm/v/casing-kit.svg)](https://www.npmjs.com/package/casing-kit)
-[![license](https://img.shields.io/npm/l/casing-kit.svg)](https://github.com/username/casing-kit/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/casing-kit.svg)](https://github.com/Ajinkyap22/casing-kit/blob/main/LICENSE)
 
 ## Features
 
