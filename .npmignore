@@ -1,0 +1,7 @@
+src/
+
+tsconfig.json
+.releaserc.json
+.github/
+
+.DS_Store

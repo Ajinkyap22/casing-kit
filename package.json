@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup src/index.ts --format esm,cjs --dts --minify --clean",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "npm run build",
