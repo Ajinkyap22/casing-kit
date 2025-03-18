@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Ajinkyap22/casing-kit/compare/v1.2.0...v1.2.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* trigger new release ([092035e](https://github.com/Ajinkyap22/casing-kit/commit/092035efdaec13974997b49da4d79368b5bee095))
+
 # [1.2.0](https://github.com/Ajinkyap22/casing-kit/compare/v1.1.0...v1.2.0) (2025-03-18)
 
 
