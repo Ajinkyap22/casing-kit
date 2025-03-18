@@ -1,6 +1,6 @@
 {
   "name": "casing-kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A lightweight, zero-dependency utility library for case transformations in JavaScript and TypeScript",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
